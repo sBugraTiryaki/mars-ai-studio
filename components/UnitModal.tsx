@@ -8,9 +8,10 @@ interface UnitModalProps {
   unit: Unit | null;
   isOpen: boolean;
   onClose: () => void;
+  onInquire: () => void;
 }
 
-export const UnitModal: React.FC<UnitModalProps> = ({ unit, isOpen, onClose }) => {
+export const UnitModal: React.FC<UnitModalProps> = ({ unit, isOpen, onClose, onInquire }) => {
   const [mounted, setMounted] = useState(false);
   const { t, language } = useLanguage();
 
@@ -74,8 +75,14 @@ export const UnitModal: React.FC<UnitModalProps> = ({ unit, isOpen, onClose }) =
               </div>
             </div>
             
-            <button className="w-full bg-primary text-white py-4 rounded-full font-semibold hover:opacity-90 transition-opacity">
-              {t('unitModal.schedule')}
+            <button
+              className="w-full bg-primary text-white py-4 rounded-full font-semibold hover:opacity-90 transition-opacity"
+              onClick={() => {
+                onClose();
+                onInquire();
+              }}
+            >
+              Inquire
             </button>
           </div>
 

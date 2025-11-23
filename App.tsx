@@ -57,7 +57,8 @@ function AppContent() {
       <UnitModal 
         unit={selectedUnit} 
         isOpen={unitModalOpen} 
-        onClose={handleCloseUnit} 
+        onClose={handleCloseUnit}
+        onInquire={handleOpenInquiry}
       />
     </div>
   );
