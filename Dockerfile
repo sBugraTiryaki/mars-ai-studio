@@ -1,24 +1,19 @@
 FROM node:20-alpine AS build
 WORKDIR /app
 
-# Install dependencies
 COPY package.json package-lock.json ./
 RUN npm ci
 
-# Build
 COPY . .
 RUN npm run build
 
-# Runtime image
-FROM node:20-alpine
-WORKDIR /app
-ENV NODE_ENV=production
+FROM nginx:alpine
+WORKDIR /usr/share/nginx/html
 
-COPY package.json package-lock.json ./
-RUN npm ci --omit=dev
+COPY --from=build /app/dist ./
 
-# Only the built assets are needed at runtime
-COPY --from=build /app/dist ./dist
+RUN rm -rf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 3000
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "3000"]
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
