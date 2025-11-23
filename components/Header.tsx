@@ -34,25 +34,25 @@ export const Header: React.FC<HeaderProps> = ({ onInquire }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         isScrolled
-          ? 'py-4 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md shadow-md'
+          ? 'py-4 bg-ivory/95 dark:bg-background-dark/95 backdrop-blur-lg border-b border-sand/20 dark:border-charcoal'
           : 'py-6 md:py-8 bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        <h1 className={`font-display text-2xl font-bold transition-colors duration-300 ${isScrolled ? 'text-primary dark:text-white' : 'text-white'}`}>
+      <div className="container mx-auto px-8 md:px-12 lg:px-16 flex justify-between items-center">
+        <h1 className={`font-display text-xl md:text-2xl font-light tracking-widest transition-colors duration-700 ${isScrolled ? 'text-primary dark:text-champagne' : 'text-champagne'}`}>
           SERENE HEIGHTS
         </h1>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-10 lg:space-x-12">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium tracking-wide hover:text-yellow-500 transition-colors duration-300 ${
-                isScrolled ? 'text-gray-600 dark:text-gray-300' : 'text-white/90'
+              className={`text-sm font-light tracking-wider hover:text-gold transition-all duration-700 ${
+                isScrolled ? 'text-charcoal dark:text-sand' : 'text-champagne/90'
               }`}
             >
               {link.name}
@@ -60,23 +60,23 @@ export const Header: React.FC<HeaderProps> = ({ onInquire }) => {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-6">
           <button
             onClick={toggleLanguage}
-            className={`flex items-center space-x-1 text-sm font-medium transition-colors ${
-              isScrolled ? 'text-gray-800 dark:text-white' : 'text-white'
+            className={`flex items-center space-x-2 text-xs font-light tracking-widest transition-colors duration-700 ${
+              isScrolled ? 'text-charcoal dark:text-sand' : 'text-champagne'
             }`}
           >
-            <Globe size={18} />
+            <Globe size={16} strokeWidth={1.5} />
             <span>{language.toUpperCase()}</span>
           </button>
 
           <button
             onClick={onInquire}
-            className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+            className={`px-8 py-2.5 border font-light text-sm tracking-wider transition-all duration-700 ${
               isScrolled
-                ? 'bg-primary text-white hover:opacity-90'
-                : 'bg-white text-primary hover:bg-white/90'
+                ? 'border-primary text-primary hover:bg-primary hover:text-ivory dark:border-champagne dark:text-champagne dark:hover:bg-champagne dark:hover:text-primary'
+                : 'border-champagne text-champagne hover:bg-champagne hover:text-primary'
             }`}
           >
             {t('nav.inquire')}
@@ -87,8 +87,8 @@ export const Header: React.FC<HeaderProps> = ({ onInquire }) => {
         <div className="md:hidden flex items-center space-x-4">
            <button
             onClick={toggleLanguage}
-            className={`flex items-center space-x-1 text-sm font-medium ${
-              isScrolled ? 'text-gray-800 dark:text-white' : 'text-white'
+            className={`flex items-center space-x-1 text-xs font-light tracking-widest ${
+              isScrolled ? 'text-charcoal dark:text-sand' : 'text-champagne'
             }`}
           >
             <span>{language.toUpperCase()}</span>
@@ -96,26 +96,26 @@ export const Header: React.FC<HeaderProps> = ({ onInquire }) => {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`p-2 focus:outline-none ${isScrolled ? 'text-primary dark:text-white' : 'text-white'}`}
+            className={`p-2 focus:outline-none transition-colors duration-700 ${isScrolled ? 'text-primary dark:text-champagne' : 'text-champagne'}`}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Nav Dropdown */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full bg-white dark:bg-background-dark shadow-xl transition-all duration-300 overflow-hidden ${
+        className={`md:hidden absolute top-full left-0 w-full bg-ivory/98 dark:bg-background-dark/98 backdrop-blur-lg border-b border-sand/20 dark:border-charcoal transition-all duration-700 overflow-hidden ${
           isMenuOpen ? 'max-h-96' : 'max-h-0'
         }`}
       >
-        <nav className="flex flex-col p-6 space-y-4">
+        <nav className="flex flex-col p-8 space-y-6">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setIsMenuOpen(false)}
-              className="text-gray-800 dark:text-gray-200 font-medium hover:text-primary transition-colors"
+              className="text-charcoal dark:text-sand font-light tracking-wide hover:text-gold transition-colors duration-500"
             >
               {link.name}
             </a>
@@ -125,7 +125,7 @@ export const Header: React.FC<HeaderProps> = ({ onInquire }) => {
               onInquire();
               setIsMenuOpen(false);
             }}
-            className="w-full bg-primary text-white py-3 rounded-full font-semibold hover:opacity-90 transition-opacity"
+            className="w-full border border-primary dark:border-champagne text-primary dark:text-champagne py-3 font-light tracking-wider hover:bg-primary hover:text-ivory dark:hover:bg-champagne dark:hover:text-primary transition-all duration-500"
           >
             {t('nav.inquireNow')}
           </button>

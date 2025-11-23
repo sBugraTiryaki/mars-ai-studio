@@ -16,22 +16,22 @@ export const Amenities: React.FC = () => {
   ];
 
   return (
-    <section id="amenities" className="py-24 bg-background-light dark:bg-background-dark">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-display font-bold text-center text-gray-900 dark:text-white mb-16">
+    <section id="amenities" className="py-30 md:py-40 bg-background-light dark:bg-background-dark">
+      <div className="container mx-auto px-8 md:px-12 lg:px-16">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-light text-center text-primary dark:text-champagne mb-24 md:mb-30 tracking-tight">
           {t('amenities.title')}
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 md:gap-12">
           {amenities.map((item, index) => (
-            <div 
-              key={index} 
-              className="group bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col items-center justify-center"
+            <div
+              key={index}
+              className="group bg-ivory dark:bg-charcoal p-10 md:p-12 border border-sand/20 dark:border-charcoal/80 hover:border-gold/40 dark:hover:border-gold/30 transition-all duration-700 text-center flex flex-col items-center justify-center"
             >
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-full mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300 text-primary dark:text-white">
-                <item.icon size={32} strokeWidth={1.5} />
+              <div className="mb-6 text-charcoal/70 dark:text-sand/80 group-hover:text-gold transition-colors duration-700">
+                <item.icon size={40} strokeWidth={1} />
               </div>
-              <p className="font-semibold text-gray-800 dark:text-gray-200">{item.label}</p>
+              <p className="font-light text-sm md:text-base tracking-wide text-charcoal/80 dark:text-sand">{item.label}</p>
             </div>
           ))}
         </div>

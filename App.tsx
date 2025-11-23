@@ -30,15 +30,15 @@ function AppContent() {
   const handleCloseUnit = () => {
     setUnitModalOpen(false);
     // Short timeout to clear data after animation
-    setTimeout(() => setSelectedUnit(null), 300);
+    setTimeout(() => setSelectedUnit(null), 1000);
   };
 
   return (
     <div className="min-h-screen flex flex-col">
       <Header onInquire={handleOpenInquiry} />
-      
+
       <main className="flex-grow">
-        <Hero />
+        <Hero onInquire={handleOpenInquiry} />
         <Overview />
         <Gallery />
         <Amenities />

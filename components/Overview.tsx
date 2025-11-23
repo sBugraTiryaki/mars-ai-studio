@@ -15,26 +15,26 @@ export const Overview: React.FC = () => {
   ];
 
   return (
-    <section id="overview" className="py-24 bg-background-light dark:bg-background-dark">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-4">
+    <section id="overview" className="py-30 md:py-40 bg-ivory dark:bg-background-dark">
+      <div className="container mx-auto px-8 md:px-12 lg:px-16">
+        <div className="text-center mb-24 md:mb-30">
+          <p className="text-xs md:text-sm font-light tracking-[0.3em] uppercase text-charcoal/60 dark:text-sand/70 mb-6">
             {t('overview.label')}
           </p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mb-8">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-light text-primary dark:text-champagne mb-12 leading-tight tracking-tight">
             {t('overview.title')}
           </h2>
-          <p className="max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-light">
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-charcoal/80 dark:text-sand leading-loose font-light">
             {t('overview.text')}
           </p>
         </div>
 
-        <div className="border-y border-gray-200 dark:border-gray-800 py-10">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
+        <div className="border-y border-sand/30 dark:border-charcoal py-16 md:py-20 mt-20">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 lg:gap-16">
             {stats.map((stat, idx) => (
               <div key={idx} className="text-center">
-                <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-1">{stat.label}</h4>
-                <p className="text-gray-600 dark:text-gray-400 font-light">{stat.value}</p>
+                <h4 className="font-light text-primary dark:text-champagne text-base md:text-lg mb-3 tracking-wide">{stat.label}</h4>
+                <p className="text-charcoal/70 dark:text-sand/80 font-light text-sm md:text-base">{stat.value}</p>
               </div>
             ))}
           </div>

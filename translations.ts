@@ -4,24 +4,20 @@ export const translations = {
     nav: {
       overview: 'Overview',
       amenities: 'Amenities',
-      units: 'Units',
+      units: 'Residences',
       location: 'Location',
       inquire: 'Inquire',
-      inquireNow: 'Inquire Now'
-    },
-    hero: {
-      title1: 'The Ultimate',
-      title2: 'Residential Address',
+      inquireNow: 'Inquire'
     },
     overview: {
       label: 'Overview',
-      title: 'Unlike Anything Before It',
-      text: 'The timeless elegance of your home at this development deserves a backdrop that sets it off like a precious jewel in an elegant setting. Floor-to-ceiling glass enables you to look out over sweeping, 360-degree vistas of the Gulf and the exciting Dubai skyline in an inspiring, ever-changing display of sea, sky and light.',
+      title: 'Precision. Light. Permanence.',
+      text: 'Crafted for those who recognize the quiet power of restraint. Where architecture speaks in whispers, and every detail serves a singular purpose.',
       stats: {
-        projectType: 'Project Type',
+        projectType: 'Type',
         kdv: 'KDV',
-        construction: 'Construction Co.',
-        rental: 'Rental Guarantee',
+        construction: 'Built by',
+        rental: 'Rental',
         view: 'View',
         buyback: 'Buyback',
         val_res: 'Residential',
@@ -33,76 +29,80 @@ export const translations = {
       }
     },
     amenities: {
-      title: 'World-Class Amenities',
+      title: 'Considered Amenities',
       items: {
         beach: 'Private Beach',
-        pool: 'Infinity Pool',
-        fitness: 'Fitness Center',
-        spa: 'Luxury Spa',
+        pool: 'Pool',
+        fitness: 'Fitness',
+        spa: 'Spa',
         concierge: 'Concierge',
-        dining: 'Fine Dining'
+        dining: 'Dining'
       }
     },
     gallery: {
       title: 'Gallery'
     },
     units: {
-      title: 'Available Units',
-      startsFrom: 'Starts from',
-      viewDetails: 'View Details'
+      title: 'Residences',
+      startsFrom: 'From',
+      viewDetails: 'Explore'
     },
     contact: {
-      title: 'Your Future Home Awaits',
-      text: 'Request more information about this exclusive property and our dedicated team will get in touch with you shortly to arrange a private viewing.',
-      button: 'Inquire Now'
+      title: 'By Invitation Only',
+      text: 'For those who seek more than a residence.',
+      button: 'Inquire',
+      buttonSecondary: 'Prospectus'
     },
     location: {
       label: 'Palm Jumeirah, Dubai'
     },
     footer: {
       rights: 'All Rights Reserved.',
-      sub: 'Luxury Real Estate Development'
+      sub: 'Developed with Precision'
     },
     modal: {
-      title: 'Request Information',
-      subtitle: "Fill out the form below and we'll contact you.",
-      name: 'Full Name',
-      email: 'Email Address',
-      phone: 'Phone Number',
+      title: 'Private Inquiry',
+      subtitle: "We respond personally.",
+      name: 'Name',
+      email: 'Email',
+      phone: 'Phone',
       message: 'Message',
-      placeholderName: 'John Doe',
-      placeholderEmail: 'john@example.com',
+      placeholderName: 'Your name',
+      placeholderEmail: 'your@email.com',
       placeholderPhone: '+1 (555) 000-0000',
-      placeholderMsg: 'I am interested in...',
-      submit: 'Submit Inquiry'
+      placeholderMsg: 'Tell us more...',
+      submit: 'Send'
     },
     unitModal: {
       floorPlan: 'Floor Plan',
-      schedule: 'Schedule a Viewing'
+      prospectus: 'Prospectus',
+      inquire: 'Inquire'
+    },
+    hero: {
+      title1: 'A Sanctuary of Light',
+      title2: 'For Those Who Feel',
+      discover: 'Explore',
+      inquire: 'Inquire'
     }
   },
   tr: {
     nav: {
       overview: 'Genel Bakış',
       amenities: 'Olanaklar',
-      units: 'Daireler',
+      units: 'Residanslar',
       location: 'Konum',
       inquire: 'Bilgi Al',
-      inquireNow: 'Hemen Başvur'
-    },
-    hero: {
-      title1: 'Eşsiz',
-      title2: 'Yaşam Alanı',
+      inquireNow: 'Bilgi Al'
     },
     overview: {
       label: 'Genel Bakış',
-      title: 'Daha Önce Görülmemiş',
-      text: 'Bu projedeki evinizin zamansız şıklığı, zarif bir mücevher gibi parlamasını sağlayan bir arka planı hak ediyor. Boydan boya camlar, Körfez\'in büyüleyici, 360 derecelik panoramik manzarasına ve heyecan verici Dubai silüetine; deniz, gökyüzü ve ışığın sürekli değişen ilham verici oyununa tanıklık etmenizi sağlıyor.',
+      title: 'Hassasiyet. Aydınlık. Kalıcılık.',
+      text: 'Sadeliğin tadını hissedenler için inşa edildi. Mimarinin fısıldadığı, her detayın tek bir amaca hizmet ettiği yer.',
       stats: {
-        projectType: 'Proje Tipi',
+        projectType: 'Tip',
         kdv: 'KDV',
-        construction: 'İnşaat Şirketi',
-        rental: 'Kira Garantisi',
+        construction: 'İnşa Eden',
+        rental: 'Kira',
         view: 'Manzara',
         buyback: 'Geri Alım',
         val_res: 'Konut',
@@ -114,52 +114,60 @@ export const translations = {
       }
     },
     amenities: {
-      title: 'Dünya Standartlarında Olanaklar',
+      title: 'Özenle Seçilmiş Olanaklar',
       items: {
         beach: 'Özel Plaj',
-        pool: 'Sonsuzluk Havuzu',
-        fitness: 'Fitness Merkezi',
-        spa: 'Lüks Spa',
+        pool: 'Havuz',
+        fitness: 'Fitness',
+        spa: 'Spa',
         concierge: 'Konsiyerj',
-        dining: 'Gurme Restoran'
+        dining: 'Restoran'
       }
     },
     gallery: {
       title: 'Galeri'
     },
     units: {
-      title: 'Satılık Daireler',
-      startsFrom: 'Başlangıç Fiyatı',
-      viewDetails: 'Detayları Gör'
+      title: 'Residanslar',
+      startsFrom: 'Fiyat',
+      viewDetails: 'Keşfet'
     },
     contact: {
-      title: 'Gelecekteki Eviniz Sizi Bekliyor',
-      text: 'Bu seçkin mülk hakkında daha fazla bilgi isteyin, özel ekibimiz özel bir sunum ayarlamak için en kısa sürede sizinle iletişime geçecektir.',
-      button: 'Bilgi Alın'
+      title: 'Yalnızca Davetiyeyle',
+      text: 'Bir residanstan fazlasını arayanlar için.',
+      button: 'Başvur',
+      buttonSecondary: 'Broşür'
     },
     location: {
       label: 'Palm Jumeirah, Dubai'
     },
     footer: {
       rights: 'Tüm Hakları Saklıdır.',
-      sub: 'Lüks Gayrimenkul Geliştirme'
+      sub: 'Hassasiyetle Geliştirildi'
     },
     modal: {
-      title: 'Bilgi Formu',
-      subtitle: "Aşağıdaki formu doldurun, sizinle iletişime geçelim.",
-      name: 'Ad Soyad',
-      email: 'E-posta Adresi',
-      phone: 'Telefon Numarası',
-      message: 'Mesajınız',
-      placeholderName: 'Adınız Soyadınız',
-      placeholderEmail: 'ornek@email.com',
+      title: 'Özel Başvuru',
+      subtitle: "Kişisel olarak yanıt veriyoruz.",
+      name: 'İsim',
+      email: 'E-posta',
+      phone: 'Telefon',
+      message: 'Mesaj',
+      placeholderName: 'İsminiz',
+      placeholderEmail: 'mail@adres.com',
       placeholderPhone: '+90 (555) 000 0000',
-      placeholderMsg: 'İlgilendiğiniz konu...',
+      placeholderMsg: 'Bize anlatın...',
       submit: 'Gönder'
     },
     unitModal: {
       floorPlan: 'Kat Planı',
-      schedule: 'Randevu Oluştur'
+      prospectus: 'Broşür',
+      inquire: 'Başvur'
+    },
+    hero: {
+      title1: 'Aydınlığın Sığınağı',
+      title2: 'Hissedebilenler İçin',
+      discover: 'Keşfet',
+      inquire: 'Başvur'
     }
   }
 };

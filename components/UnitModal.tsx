@@ -15,6 +15,11 @@ export const UnitModal: React.FC<UnitModalProps> = ({ unit, isOpen, onClose, onI
   const [mounted, setMounted] = useState(false);
   const { t, language } = useLanguage();
 
+  const handleDownloadProspectus = () => {
+    // TODO: Implement actual PDF download
+    console.log('Download unit prospectus');
+  };
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -22,76 +27,90 @@ export const UnitModal: React.FC<UnitModalProps> = ({ unit, isOpen, onClose, onI
   if (!mounted || !unit) return null;
 
   return (
-    <div 
-      className={`fixed inset-0 z-[60] flex items-center justify-center p-4 transition-all duration-300 ${
+    <div
+      className={`fixed inset-0 z-[60] flex items-center justify-center p-6 transition-all duration-1000 ${
         isOpen ? 'visible opacity-100' : 'invisible opacity-0'
       }`}
     >
       {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300"
+      <div
+        className="absolute inset-0 bg-black/85 backdrop-blur-lg transition-opacity duration-1000"
         onClick={onClose}
       ></div>
 
       {/* Content */}
-      <div 
-        className={`bg-white dark:bg-background-dark w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl relative transform transition-all duration-300 ${
-          isOpen ? 'scale-100 translate-y-0' : 'scale-95 translate-y-8'
+      <div
+        className={`bg-ivory dark:bg-background-dark w-full max-w-6xl max-h-[90vh] overflow-y-auto border border-sand/30 dark:border-charcoal shadow-2xl relative transform transition-all duration-1000 ${
+          isOpen ? 'scale-100 translate-y-0 opacity-100' : 'scale-98 translate-y-4 opacity-0'
         }`}
       >
-        <button 
-          onClick={onClose} 
-          className="absolute top-6 right-6 z-10 bg-white/50 dark:bg-black/50 p-2 rounded-full text-gray-800 dark:text-white hover:bg-white dark:hover:bg-black transition-colors"
+        <button
+          onClick={onClose}
+          className="absolute top-6 right-6 z-10 bg-ivory/80 dark:bg-charcoal/80 backdrop-blur-sm p-3 text-primary dark:text-champagne hover:bg-ivory dark:hover:bg-charcoal transition-all duration-500"
         >
-          <X size={24} />
+          <X size={24} strokeWidth={1.5} />
         </button>
 
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Left: Info */}
-          <div className="p-8 md:p-12 flex flex-col justify-center">
-            <h3 className="text-4xl font-display font-bold text-gray-900 dark:text-white mb-2">
-              {unit.type[language]}
-            </h3>
-            <p className="text-2xl text-primary dark:text-gray-300 font-medium mb-6">
-              {unit.priceRange}
-            </p>
-            
-            <div className="prose dark:prose-invert mb-8">
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          <div className="p-12 md:p-16 flex flex-col justify-center space-y-8">
+            <div>
+              <h3 className="text-4xl md:text-5xl font-display font-light text-primary dark:text-champagne mb-4 tracking-tight">
+                {unit.type[language]}
+              </h3>
+              <p className="text-xl text-charcoal/80 dark:text-sand font-light">
+                {unit.priceRange}
+              </p>
+            </div>
+
+            <div className="border-t border-sand/30 dark:border-charcoal pt-8">
+              <p className="text-charcoal/80 dark:text-sand/90 leading-loose font-light text-base">
                 {unit.description[language]}
               </p>
             </div>
 
-            <div className="mb-8">
-              <h4 className="text-lg font-bold mb-4 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2">
+            <div>
+              <h4 className="text-lg font-light tracking-wider mb-6 text-primary dark:text-champagne border-b border-sand/30 dark:border-charcoal pb-3">
                 {t('unitModal.floorPlan')}
               </h4>
-              <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-2">
-                <img 
-                  src={unit.floorPlan} 
-                  alt="Floor plan" 
-                  className="w-full h-64 object-contain rounded mix-blend-multiply dark:mix-blend-normal"
+              <div className="bg-background-light dark:bg-charcoal border border-sand/30 dark:border-charcoal/80 p-4">
+                <img
+                  src={unit.floorPlan}
+                  alt="Floor plan"
+                  className="w-full h-64 object-contain mix-blend-multiply dark:mix-blend-normal"
                 />
               </div>
             </div>
-            
-            <button
-              className="w-full bg-primary text-white py-4 rounded-full font-semibold hover:opacity-90 transition-opacity"
-              onClick={() => {
-                onClose();
-                onInquire();
-              }}
-            >
-              Inquire
-            </button>
+
+            {/* Dual CTA - Apple Style */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              {/* Secondary CTA - Low Friction (Prospectus) */}
+              <button
+                className="flex-1 px-8 py-3 text-sm font-light tracking-[0.15em] text-charcoal/70 dark:text-sand/70 hover:text-primary dark:hover:text-champagne transition-all duration-700"
+                onClick={handleDownloadProspectus}
+              >
+                {t('unitModal.prospectus')}
+              </button>
+
+              {/* Primary CTA - Apple "Buy" Style */}
+              <button
+                className="flex-1 bg-primary dark:bg-champagne text-ivory dark:text-primary px-8 py-3 text-sm font-medium tracking-[0.15em] hover:opacity-90 transition-all duration-700"
+                onClick={() => {
+                  onClose();
+                  onInquire();
+                }}
+              >
+                {t('unitModal.inquire')}
+              </button>
+            </div>
           </div>
 
           {/* Right: Images */}
-          <div className="bg-gray-100 dark:bg-gray-800 p-4 lg:p-8 overflow-y-auto max-h-[50vh] lg:max-h-[90vh] custom-scrollbar">
-            <div className="grid gap-4">
-              <img src={unit.image} alt={unit.type[language]} className="w-full rounded-xl shadow-md" />
+          <div className="bg-champagne dark:bg-charcoal p-6 lg:p-10 overflow-y-auto max-h-[50vh] lg:max-h-[90vh] custom-scrollbar">
+            <div className="grid gap-6">
+              <img src={unit.image} alt={unit.type[language]} className="w-full shadow-md" />
               {unit.gallery.map((img, idx) => (
-                <img key={idx} src={img} alt={`Detail ${idx}`} className="w-full rounded-xl shadow-md" />
+                <img key={idx} src={img} alt={`Detail ${idx}`} className="w-full shadow-md" />
               ))}
             </div>
           </div>
